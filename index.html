@@ -3,167 +3,200 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Руны и Клинки — бой «три в ряд»</title>
-<meta name="description" content="«Руны и Клинки» — фэнтези-бой «три в ряд» один на один: герои с умениями, яд и проклятия, боссы, кузница, сундуки и дуэль с другом по Wi-Fi. Для Android.">
-<meta property="og:title" content="Руны и Клинки — бой «три в ряд»">
-<meta property="og:description" content="Фэнтези-бой «три в ряд»: собирай камни, бей врагов умениями героев и побеждай боссов.">
-<meta property="og:image" content="img/icon.png">
+<title>Руны и Клинки — славянское фэнтези: бой «три в ряд», Арена рун, подземелье</title>
+<meta name="description" content="«Руны и Клинки» — фэнтези-игра для Android по мотивам славянских сказок: бой «три в ряд» один на один, автобой «Арена рун» на 8 игроков по сети, кампания-приключение, подземелье, арена PvP, кузница и сундуки.">
+<meta property="og:title" content="Руны и Клинки">
+<meta property="og:description" content="Бой «три в ряд», автобой «Арена рун» на 8 игроков, кампания с выборами, подземелье и нечисть из славянских сказок.">
+<meta property="og:image" content="img/shots/main.webp">
 <link rel="icon" href="img/icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="bar">
-  <a class="brand" href="#top"><img src="img/icon.png" alt="">Руны и Клинки</a>
+  <a class="brand" href="index.html"><img src="img/icon.png" alt="">Руны и Клинки</a>
   <nav>
-    <a href="#game">Игра</a>
-    <a href="#screens">Скриншоты</a>
+    <a href="#modes">Режимы</a>
     <a href="#heroes">Герои</a>
-    <a href="#lianor">Лианор</a>
-    <a href="#contacts">Контакты</a>
+    <a href="guide.html">Как играть</a>
+    <a href="arena.html">Арена рун</a>
+    <a href="faq.html">Вопросы</a>
     <a href="updates.html">Обновления</a>
   </nav>
 </header>
 
-<section class="hero" id="top">
-  <div class="hero-text">
-    <p class="kicker">Фэнтези · Три в ряд · Android</p>
+<section class="hero">
+  <div>
+    <p class="kicker">Славянское фэнтези · Android</p>
     <h1>Руны и Клинки</h1>
-    <p class="lead">Бой «три в ряд» один на один. Собирай камни — каждый ход бьёт, лечит или копит ману.
-      Твой герой и его враг ходят по очереди на одном поле, а побеждает тот, кто лучше читает доску.</p>
+    <p class="lead">Кикимора, Лихо Одноглазое, Вий и Чернобог — сказочная нечисть вышла из лесов и болот.
+      Сражайся в бою «три в ряд», собирай отряд в «Арене рун» против семи соперников, проходи кампанию с выборами
+      и спускайся в подземелье.</p>
     <div class="cta">
-      <a class="store" href="https://www.rustore.ru/catalog/app/com.MariaMiel.Kunina.CastleDefenders">Скачать в RuStore</a>
-      <a class="ghost" href="https://109-66-238-116.sslip.io/download/RunesAndBlades-1.3.0.apk">Бета-версия (APK)</a>
-      <a class="ghost" href="#heroes">Познакомиться с героями</a>
+      <a class="btn main" href="https://www.rustore.ru/catalog/app/com.MariaMiel.Kunina.CastleDefenders">Скачать в RuStore</a>
+      <a class="btn" href="guide.html">Как играть</a>
     </div>
-    <p class="note"><a href="updates.html">Что нового в бете</a>. Бета для Android: при установке разреши «Установку из неизвестных источников».
-      Прогресс беты может быть сброшен перед релизом (в 1.0.5 он сброшен у всех).</p>
+    <p class="note">Бесплатно. Хочешь пробовать новое раньше всех — есть
+      <a href="https://github.com/Fladver/castle-defenders/releases/download/v1.3.0-beta/RunesAndBlades-1.3.0.apk">бета-версия (APK)</a>:
+      при установке разреши «Установку из неизвестных источников».</p>
   </div>
-  <div class="hero-art">
-    <img class="h1" src="img/bram.png" alt="Брам">
-    <img class="h2" src="img/mael.png" alt="Мариэль">
-    <img class="h3" src="img/zeus.png" alt="Зевс">
-  </div>
+  <div class="hero-shot"><img src="img/shots/main.webp" alt="Главный экран игры" width="1400" height="630"></div>
 </section>
 
-<section class="block" id="game">
-  <h2>Как играется</h2>
-  <div class="grid">
-    <article class="card">
-      <h3>Камни — это действия</h3>
-      <p>Черепа бьют врага, кресты лечат, солнца дают щит, самоцветы копят ману. Собрал пять в ряд — ходишь ещё раз.
-        Каскады усиливают удар.</p>
-    </article>
-    <article class="card">
-      <h3>Умения героя</h3>
-      <p>Мана тратится на умения. Щиты и удары не тратят ход, а умения-фигуры сносят с поля камни крестом, косым рассечением или волшебной бомбой — и все они работают на тебя.</p>
-    </article>
-    <article class="card">
-      <h3>Яд, проклятия, ярость</h3>
-      <p>Эффекты по ходам складываются до трёх раз. Враги тоже не просты: пауки травят, вампиры пускают кровь,
-        а призраки копят ярость.</p>
-    </article>
-    <article class="card">
-      <h3>Боссы и награды</h3>
-      <p>Каждый пятый уровень тебя находит босс. Рискни — и забери эпический сундук. Или отступи и выбери противника попроще.</p>
-    </article>
-    <article class="card">
-      <h3>Кузница и сундуки</h3>
-      <p>Сундуки выпадают с врагов: чем сильнее враг, тем лучше добыча. В кузнице вещи объединяются в более сильные, разбираются на пыль и чинятся.</p>
-    </article>
-    <article class="card">
-      <h3>Дуэль по Wi-Fi</h3>
-      <p>Сразись с другом на втором телефоне: каждый своим героем и своими вещами. Без рейтинга — просто выяснить, кто сильнее.</p>
-    </article>
-    <article class="card">
-      <h3>Мариэль поможет</h3>
-      <p>Фея Мариэль проведёт по главному экрану и первому бою. Есть идея героя или нашёл ошибку — кнопка «Связь» отправит сообщение разработчику.</p>
-    </article>
+<section class="block" id="modes">
+  <h2>Режимы</h2>
+  <p class="sub">Добыча из всех режимов общая: вещи, сундуки и золото идут в одну сумку.</p>
+  <div class="modes">
+    <div class="mode">
+      <div class="mode-pic"><img src="img/shots/battle.webp" alt="Бой «три в ряд»" loading="lazy"></div>
+      <div>
+        <span class="tag">Основной режим</span>
+        <h3>Бой «три в ряд»</h3>
+        <p>Ты и враг ходите по очереди на одном поле. Черепа бьют, кресты лечат, солнца дают щит, самоцветы копят ману на умения героя.
+          Собрал пять в ряд — ходишь ещё раз.</p>
+        <ul>
+          <li>30 видов врагов: от крыс и пауков до Кикиморы, Вия и Чернобога.</li>
+          <li>Каждый пятый уровень — босс с эпическим сундуком.</li>
+          <li>Кнопка «АВТО» — бой сыграет сам.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mode">
+      <div class="mode-pic"><img src="img/shots/rune_arena.webp" alt="Арена рун: выбор героя" loading="lazy"></div>
+      <div>
+        <span class="tag">Новое · по сети</span>
+        <h3>Арена рун</h3>
+        <p>Автобой на восьмерых. Нанимай существ в таверне, собирай три одинаковых в золотое, подбирай племена —
+          а бой идёт сам. Побеждает последний выживший.</p>
+        <ul>
+          <li>153 существа, 8 племён, 12 героев со своими силами.</li>
+          <li>Играй с ботами или по сети с живыми игроками.</li>
+          <li><a href="arena.html">Полный справочник по Арене рун →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mode">
+      <div class="mode-pic"><img src="img/shots/heroes.webp" alt="Выбор героя" loading="lazy"></div>
+      <div>
+        <span class="tag">Сюжет</span>
+        <h3>Кампания-приключение</h3>
+        <p>Карта главы, разговоры с героями сказок, поручения и выборы, которые меняют бой: оберег ослабит врага,
+          а короткий путь сделает его злее. У главы две концовки.</p>
+        <ul>
+          <li>Глава 1 — «Пепел у Врат», глава 2 — «Лихо над Заречьем».</li>
+          <li>За прохождение главы — новый герой.</li>
+        </ul>
+      </div>
+    </div>
   </div>
-</section>
-
-<section class="block" id="screens">
-  <h2>Скриншоты</h2>
-  <p class="sub">Главный экран с твоим героем и выбор героя.</p>
-  <div class="shots">
-    <img src="img/screen_main.jpg" alt="Главный экран: герой по центру, разделы по бокам, кнопка «В бой»" loading="lazy">
-    <img src="img/screen_heroes.jpg" alt="Выбор героя: карусель с героями и их умениями" loading="lazy">
+  <div class="grid" style="margin-top:22px">
+    <div class="card"><h3>Подземелье</h3><p>Экшен-забег по этажам: комнаты с волнами врагов, сокровищница и босс в дальнем углу. Пять этажей, можно вдвоём по Wi-Fi.</p></div>
+    <div class="card"><h3>Арена</h3><p>Бои против героев других игроков: рейтинг, лиги и награды за неделю и месяц. Открывается с мощи 100.</p></div>
+    <div class="card"><h3>Дуэль по Wi-Fi</h3><p>Сразись с другом на соседнем телефоне — каждый своим героем и своими вещами.</p></div>
   </div>
 </section>
 
 <section class="block" id="heroes">
   <h2>Герои</h2>
-  <p class="sub">В бой идёт один герой — у каждого свои умения и свой стиль боя. Здоровье и урон растут от вещей и уровня.</p>
+  <p class="sub">В бой идёт один герой — у каждого свои умения. Здоровье и урон растут от уровня и вещей.</p>
   <div class="heroes">
-    <article class="hcard">
-      <img src="img/bram.png" alt="Брам">
-      <h3>Брам</h3>
-      <p class="tag">Закалённый воин · ближний бой</p>
-      <div class="stats"><span><b>120</b>здоровье</span><span><b>12</b>урон, физ.</span><span><b>5%</b>крит</span></div>
-      <ul><li>Стальной щит</li><li>Сокрушение</li><li>Рассечение</li></ul>
-      <p class="price">Стартовый</p>
-    </article>
-    <article class="hcard">
-      <img src="img/mael.png" alt="Мариэль">
-      <h3>Мариэль</h3>
-      <p class="tag">Фея-целительница · дальний бой</p>
-      <div class="stats"><span><b>130</b>здоровье</span><span><b>10</b>урон, маг.</span><span><b>+120%</b>лечение</span></div>
+    <div class="hcard">
+      <img src="img/bram.png" alt="Брам" loading="lazy">
+      <h3>Брам</h3><p class="role">Закалённый воин · ближний бой</p>
+      <ul><li>Стальной щит</li><li>Сокрушение</li><li>Рассечение — косой крест по полю</li></ul>
+      <span class="price free">Стартовый</span>
+    </div>
+    <div class="hcard">
+      <img src="img/mael.png" alt="Мариэль" loading="lazy">
+      <h3>Мариэль</h3><p class="role">Фея-целительница · дальний бой</p>
       <ul><li>Целебный свет</li><li>Благословение</li><li>Волшебная бомба</li></ul>
-      <p class="price">289 кристаллов</p>
-    </article>
-    <article class="hcard">
-      <img src="img/morana.png" alt="Морана">
-      <h3>Морана</h3>
-      <p class="tag">Чародейка тьмы · дальний бой</p>
-      <div class="stats"><span><b>80</b>здоровье</span><span><b>20</b>урон, маг.</span><span><b>7%</b>крит</span><span><b>+20%</b>лечение</span></div>
-      <ul><li>Проклятие</li><li>Поджог</li><li>Крест тьмы</li></ul>
-      <p class="price">1490 золота</p>
-    </article>
-    <article class="hcard dark">
-      <img src="img/lianor.png" alt="Лианор">
-      <h3>Лианор</h3>
-      <p class="tag">Сила от заряда телефона · ближний бой</p>
-      <div class="stats"><span><b>100</b>здоровье</span><span><b>20</b>урон, физ.</span><span><b>8%</b>крит</span><span><b>+15%</b>лечение</span></div>
-      <ul><li>Истощение — урон каждый ход</li><li>Прилив маны — мана каждый ход</li><li>Линия — убирает ряд камней</li></ul>
-      <p class="price">458 кристаллов</p>
-    </article>
-    <article class="hcard">
-      <img src="img/zeus.png" alt="Зевс">
-      <h3>Зевс</h3>
-      <p class="tag">Громовержец · дальний бой</p>
-      <div class="stats"><span><b>100</b>здоровье</span><span><b>16</b>урон, маг.</span></div>
-      <ul><li>Громовой волк — «в шоке»: меньше крита и лечения, урон каждый ход</li><li>Сокрушение</li><li>Крест тьмы</li></ul>
-      <p class="price">489 кристаллов</p>
-    </article>
-    <article class="hcard soon">
-      <img src="img/clint.png" alt="Клинт">
-      <h3>Клинт</h3>
-      <p class="tag">Стрелок · дальний бой</p>
-      <div class="stats"><span><b>скоро</b>статус</span></div>
+      <span class="price">289 кристаллов</span>
+    </div>
+    <div class="hcard">
+      <img src="img/morana.png" alt="Морана" loading="lazy">
+      <h3>Морана</h3><p class="role">Чародейка тьмы · дальний бой</p>
+      <ul><li>Проклятие</li><li>Поджог — враг горит сам</li><li>Крест тьмы</li></ul>
+      <span class="price">1490 золота или награда главы 1</span>
+    </div>
+    <div class="hcard">
+      <img src="img/lianor.png" alt="Лианор" loading="lazy">
+      <h3>Лианор</h3><p class="role">Сила от заряда телефона · ближний бой</p>
+      <ul><li>Чем меньше заряд — тем он сильнее: шесть обликов прямо в бою</li><li>Истощение, Прилив маны, Линия</li></ul>
+      <span class="price">458 кристаллов</span>
+    </div>
+    <div class="hcard">
+      <img src="img/zeus.png" alt="Зевс" loading="lazy">
+      <h3>Зевс</h3><p class="role">Громовержец · дальний бой</p>
+      <ul><li>Громовой волк — враг «в шоке»: меньше крита и лечения</li><li>Сокрушение</li><li>Крест тьмы</li></ul>
+      <span class="price">489 кристаллов</span>
+    </div>
+    <div class="hcard">
+      <img src="img/clint.png" alt="Клинт" loading="lazy">
+      <h3>Клинт</h3><p class="role">Стрелок · дальний бой</p>
       <ul><li>Меткость — крит выше на 5 ходов</li><li>Шквал — 4 выстрела</li><li>Мощный выстрел</li></ul>
-      <p class="price">В разработке</p>
-    </article>
+      <span class="price soon">Скоро</span>
+    </div>
   </div>
 </section>
 
-<section class="block lianor" id="lianor">
-  <h2>Лианор питается твоим зарядом</h2>
-  <p class="sub">Чем меньше заряд телефона — тем он сильнее и страшнее: шесть стадий, облик меняется прямо в бою.
-    От стадии растут его умения — «Истощение» бьёт сильнее, «Прилив маны» даёт больше маны, «Линия» сносит длинный ряд камней.
-    А на зарядке он слабеет: схитрить не выйдет.</p>
-  <img class="forms" src="img/lianor_forms.png" alt="Шесть обликов Лианора — от малыша до сияющего демона">
-</section>
-
-<section class="block" id="contacts">
-  <h2>Контакты</h2>
-  <div class="contacts">
-    <p>Разработчик: <strong>MariaMiel.Kunina</strong></p>
-    <p>Почта: <a href="mailto:fladver6@gmail.com">fladver6@gmail.com</a></p>
-    <p><a href="privacy.html">Политика конфиденциальности</a></p>
+<section class="block" id="bestiary">
+  <h2>Нечисть и дружина</h2>
+  <p class="sub">Существа из славянских сказок — враги в бою «три в ряд» и бойцы в «Арене рун».
+    Золотая рамка — союзники: дружинники и домашние духи.</p>
+  <div class="bestiary">
+    <figure class="beast"><img src="img/units/kikimora.webp" alt="" loading="lazy"><figcaption>Кикимора</figcaption></figure>
+    <figure class="beast"><img src="img/units/bolotnik.webp" alt="" loading="lazy"><figcaption>Болотник</figcaption></figure>
+    <figure class="beast"><img src="img/units/auka.webp" alt="" loading="lazy"><figcaption>Аука</figcaption></figure>
+    <figure class="beast"><img src="img/units/shishiga.webp" alt="" loading="lazy"><figcaption>Шишига</figcaption></figure>
+    <figure class="beast"><img src="img/units/anchutka.webp" alt="" loading="lazy"><figcaption>Анчутка</figcaption></figure>
+    <figure class="beast"><img src="img/units/buka.webp" alt="" loading="lazy"><figcaption>Бука</figcaption></figure>
+    <figure class="beast"><img src="img/units/zlydni.webp" alt="" loading="lazy"><figcaption>Злыдни</figcaption></figure>
+    <figure class="beast"><img src="img/units/rusalka.webp" alt="" loading="lazy"><figcaption>Русалка</figcaption></figure>
+    <figure class="beast"><img src="img/units/poludnitsa.webp" alt="" loading="lazy"><figcaption>Полудница</figcaption></figure>
+    <figure class="beast"><img src="img/units/mara.webp" alt="" loading="lazy"><figcaption>Мара</figcaption></figure>
+    <figure class="beast"><img src="img/units/upyr.webp" alt="" loading="lazy"><figcaption>Упырь</figcaption></figure>
+    <figure class="beast"><img src="img/units/mertvyak.webp" alt="" loading="lazy"><figcaption>Мертвяк</figcaption></figure>
+    <figure class="beast"><img src="img/units/volkodlak.webp" alt="" loading="lazy"><figcaption>Волкодлак</figcaption></figure>
+    <figure class="beast"><img src="img/units/kladovik.webp" alt="" loading="lazy"><figcaption>Кладовик</figcaption></figure>
+    <figure class="beast"><img src="img/units/likho.webp" alt="" loading="lazy"><figcaption>Лихо</figcaption></figure>
+    <figure class="beast"><img src="img/units/viy.webp" alt="" loading="lazy"><figcaption>Вий</figcaption></figure>
+    <figure class="beast"><img src="img/units/chernobog.webp" alt="" loading="lazy"><figcaption>Чернобог</figcaption></figure>
+    <figure class="beast ally"><img src="img/units/druzhinnik.webp" alt="" loading="lazy"><figcaption>Дружинник</figcaption></figure>
+    <figure class="beast ally"><img src="img/units/luchnik.webp" alt="" loading="lazy"><figcaption>Лучник</figcaption></figure>
+    <figure class="beast ally"><img src="img/units/ushkuynik.webp" alt="" loading="lazy"><figcaption>Ушкуйник</figcaption></figure>
+    <figure class="beast ally"><img src="img/units/vityaz.webp" alt="" loading="lazy"><figcaption>Витязь</figcaption></figure>
+    <figure class="beast ally"><img src="img/units/volkhv.webp" alt="" loading="lazy"><figcaption>Волхв</figcaption></figure>
+    <figure class="beast ally"><img src="img/units/domovoy.webp" alt="" loading="lazy"><figcaption>Домовой</figcaption></figure>
+    <figure class="beast ally"><img src="img/units/bannik.webp" alt="" loading="lazy"><figcaption>Банник</figcaption></figure>
+    <figure class="beast ally"><img src="img/units/ovinnik.webp" alt="" loading="lazy"><figcaption>Овинник</figcaption></figure>
   </div>
 </section>
 
-<footer class="foot">© 2026 MariaMiel.Kunina · <a href="updates.html">Обновления</a> · <a href="privacy.html">Политика конфиденциальности</a></footer>
+<section class="block" id="screens">
+  <h2>Скриншоты</h2>
+  <div class="shots">
+    <figure><img src="img/shots/battle.webp" alt="" loading="lazy"><figcaption>Бой «три в ряд»</figcaption></figure>
+    <figure><img src="img/shots/rune_arena.webp" alt="" loading="lazy"><figcaption>Арена рун — выбор героя</figcaption></figure>
+    <figure><img src="img/shots/forge.webp" alt="" loading="lazy"><figcaption>Кузница</figcaption></figure>
+    <figure><img src="img/shots/chests.webp" alt="" loading="lazy"><figcaption>Магазин — сундуки</figcaption></figure>
+    <figure><img src="img/shots/pass.webp" alt="" loading="lazy"><figcaption>Боевой пропуск</figcaption></figure>
+    <figure><img src="img/shots/heroes.webp" alt="" loading="lazy"><figcaption>Выбор героя</figcaption></figure>
+  </div>
+</section>
+
+<section class="block" id="community">
+  <h2>Новости и связь</h2>
+  <p class="sub">Анонсы обновлений и бета-версий — в Telegram-канале. Что-то непонятно — загляни в <a href="faq.html">вопросы</a>
+    или задай свой.</p>
+  <div class="links">
+    <a class="btn main" href="https://t.me/RunesAndBlades">Канал в Telegram</a>
+    <a class="btn" href="faq.html#ask">Задать вопрос</a>
+    <a class="btn" href="mailto:fladver6@gmail.com">fladver6@gmail.com</a>
+  </div>
+</section>
+
+<footer class="foot">© 2026 MariaMiel.Kunina · <a href="guide.html">Как играть</a> · <a href="arena.html">Арена рун</a> ·
+  <a href="faq.html">Вопросы</a> · <a href="updates.html">Обновления</a> · <a href="privacy.html">Политика конфиденциальности</a></footer>
 
 </body>
 </html>

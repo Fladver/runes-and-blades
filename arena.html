@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Арена рун — справочник: правила, существа, герои — Руны и Клинки</title>
+<meta name="description" content="Справочник «Арены рун»: правила автобоя на 8 игроков, золото и уровни таверны, тройки и золотые существа, свойства, 12 героев, заклинания и все 153 существа с поиском.">
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="brand" href="index.html"><img src="img/icon.png" alt="">Руны и Клинки</a>
+  <nav>
+    <a href="index.html">Игра</a>
+    <a href="guide.html">Как играть</a>
+    <a href="arena.html">Арена рун</a>
+    <a href="faq.html">Вопросы</a>
+    <a href="updates.html">Обновления</a>
+  </nav>
+</header>
+
+<main class="doc wide">
+<h1>Арена рун</h1>
+<p class="muted">Автобой на 8 игроков. «В БОЙ» → «АРЕНА РУН» → выбери героя → «С БОТАМИ» или «ПО СЕТИ».</p>
+
+<div class="toc panel">
+  <a href="#rules">Как идёт партия</a> · <a href="#gold">Золото и таверна</a> · <a href="#triple">Тройки</a> · <a href="#fight">Бой</a> ·
+  <a href="#tribes">Племена</a> · <a href="#kw">Свойства</a> · <a href="#online">По сети</a> · <a href="#heroes">Герои</a> ·
+  <a href="#spells">Заклинания</a> · <a href="#cards">Все существа</a> · <a href="#tips">Советы</a>
+</div>
+
+<h2 id="rules">Как идёт партия</h2>
+<ul>
+  <li>8 игроков, у каждого <b>40 здоровья</b>. Раунд — это <b>ход в таверне</b> (покупаешь и расставляешь существ), потом <b>бой</b> с одним из соперников.</li>
+  <li>Бой идёт сам. Проигравший теряет здоровье. У кого здоровье кончилось — выбывает. Побеждает последний оставшийся.</li>
+  <li>Если игроков нечётное число, один бьётся с копией чужого стола — урон получает только он сам.</li>
+  <li>На столе до <b>7 существ</b>, в руке до <b>10 карт</b>.</li>
+</ul>
+
+<h2 id="gold">Золото и таверна</h2>
+<ul>
+  <li>Каждый ход золото восстанавливается: в 1-м раунде <b>3</b>, дальше +1 за раунд, максимум <b>10</b>. Неистраченное сгорает.</li>
+  <li><b>Купить</b> существо — 3 золота. <b>Продать</b> — +1 золото. <b>Обновить</b> таверну — 1 золото.</li>
+  <li><b>Заморозить</b> — таверна не обновится в следующем ходу: удобно отложить нужных существ.</li>
+  <li><b>Улучшить таверну</b> — в ней появятся существа сильнее. Уровней 6. Цена до 2-го — 5 золота, до 3-го — 7, потом 8, 9, 10.
+    Каждый раунд улучшение дешевеет на 1.</li>
+  <li>В таверне 3 существа на 1-м уровне, 4 — на 2–3-м, 5 — на 4–5-м, 6 — на 6-м. Плюс одно заклинание.</li>
+  <li>Число копий каждого существа ограничено на всё лобби: если их скупили соперники, они реже попадаются.</li>
+  <li><b>Мана</b> нужна для силы героя: +1 в начале каждого хода, не сгорает, копится до 10 (Чародеи и заклинания поднимают запас до 20).</li>
+</ul>
+
+<h2 id="triple">Тройки и золотые существа</h2>
+<ul>
+  <li>Собери <b>3 одинаковых существа</b> (в руке и на столе) — они сольются в одно <b>золотое</b>.</li>
+  <li>У золотого вдвое больше атаки и здоровья, а его эффекты срабатывают сильнее (обычно вдвое). Все накопленные усиления трёх копий переходят ему.</li>
+  <li>Выставишь золотое из руки — получишь <b>награду</b>: существо на уровень выше твоей таверны.</li>
+</ul>
+
+<h2 id="fight">Бой</h2>
+<ul>
+  <li>Сначала срабатывают эффекты «Начало боя» и сила героя на этот бой.</li>
+  <li>Первой атакует сторона, у которой <b>больше существ</b> (поровну — случайно). Дальше стороны бьют по очереди.</li>
+  <li>Существа атакуют <b>слева направо</b> по очереди. Цель — случайное существо врага, но <b>Стражей</b> бьют первыми.</li>
+  <li>При ударе оба существа наносят друг другу урон, равный своей атаке.</li>
+  <li><b>Урон проигравшему</b> = уровень таверны победителя + сумма уровней его выживших существ.</li>
+  <li>Ничья — никто не теряет здоровье.</li>
+</ul>
+
+<h2 id="tribes">Племена</h2>
+<p>В каждой партии участвуют <b>5 племён из 8</b>: в таверну приходят только их существа (плюс химеры — они «все племена сразу»).
+  Племя твоего героя, если сила с ним связана, всегда попадает в партию.</p>
+<div class="tribes" id="tribeList"></div>
+
+<h2 id="kw">Свойства и эффекты</h2>
+<div class="kwgrid">
+  <div class="kw"><img src="img/arena/k/icon_taunt.webp" alt=""><div><b>Страж</b> — враги атакуют его первым.</div></div>
+  <div class="kw"><img src="img/arena/k/icon_shield.webp" alt=""><div><b>Барьер</b> — поглощает первый полученный урон.</div></div>
+  <div class="kw"><img src="img/arena/k/icon_poison.webp" alt=""><div><b>Яд</b> — первый нанесённый урон убивает цель, затем яд пропадает.</div></div>
+  <div class="kw"><img src="img/arena/k/icon_reborn.webp" alt=""><div><b>Воскрешение</b> — после первой смерти возвращается с 1 здоровья.</div></div>
+  <div class="kw"><img src="img/arena/k/icon_immortal.webp" alt=""><div><b>Бессмертие</b> — после смерти возвращается с 1 здоровья и Воскрешением: итого воскресает дважды.</div></div>
+  <div class="kw"><img src="img/arena/k/icon_windfury.webp" alt=""><div><b>Двойная атака</b> — атакует дважды.</div></div>
+  <div class="kw"><img src="img/arena/k/icon_fuse.webp" alt=""><div><b>Слияние</b> — перетащи из руки на своё существо: оно получит статы, свойства и эффекты слияния.</div></div>
+  <div class="kw"><img src="img/arena/k/icon_aura.webp" alt=""><div><b>Аура</b> — действует, пока существо на столе (например, Кличи срабатывают дважды).</div></div>
+  <div class="kw"><img src="img/arena/k/icon_deathrattle.webp" alt=""><div><b>Предсмертие</b> — срабатывает, когда существо гибнет в бою.</div></div>
+  <div class="kw"><img src="img/arena/k/icon_permanent.webp" alt=""><div><b>Навсегда</b> — усиление из боя сохраняется и после боя.</div></div>
+</div>
+<ul>
+  <li><b>Клич</b> — когда выставляешь существо из руки.</li>
+  <li><b>Начало боя</b> — в начале каждого боя.</li>
+  <li><b>Конец хода / начало хода</b> — в таверне, в конце или начале твоего хода.</li>
+  <li><b>Возмездие (N)</b> — каждый раз, когда в бою гибнут N других твоих существ.</li>
+  <li><b>При продаже</b>, <b>при покупке</b>, <b>после атаки</b>, <b>когда призвано</b> другое существо — срабатывают в эти моменты.</li>
+  <li>Запись <b>+2/+1</b> значит: +2 к атаке, +1 к здоровью.</li>
+</ul>
+
+<h2 id="online">Игра по сети</h2>
+<ul>
+  <li>«ПО СЕТИ» на выборе героя ставит в очередь. В лобби до 8 живых игроков, пустые места занимают боты.</li>
+  <li>Ход ограничен таймером: 45 секунд, +5 за каждый раунд, максимум 90. Нажали «ГОТОВ» все — бой начинается через 3 секунды.</li>
+  <li>Не успел или пропала связь — за тебя доиграет бот (у него надпись «СВЯЗЬ ПОТЕРЯНА»).</li>
+  <li>Нужен стабильный интернет. С ботами можно играть и без сети.</li>
+</ul>
+
+<h2 id="heroes">Герои</h2>
+<p class="muted">У героя есть сила — её применяешь за ману. Если у силы есть цель, перетащи кнопку силы на своё существо.</p>
+<div class="aheroes" id="heroList"></div>
+
+<h2 id="spells">Заклинания таверны</h2>
+<p class="muted">Одно заклинание в таверне. Покупается и сразу применяется (или откладывается в руку). Уровень — с какого уровня таверны появляется.</p>
+<table class="tbl" id="spellTable"><thead><tr><th>Заклинание</th><th>Ур.</th><th>Цена</th><th>Эффект</th></tr></thead><tbody></tbody></table>
+
+<h2 id="cards">Все существа</h2>
+<div class="filters panel">
+  <input id="q" type="search" placeholder="Поиск: имя или текст (например, «яд»)">
+  <div class="chips" id="tierChips"></div>
+  <div class="chips" id="tribeChips"></div>
+  <label class="gold-toggle"><input type="checkbox" id="golden"> показать золотые</label>
+</div>
+<p class="muted" id="count"></p>
+<div class="cards" id="cardList"></div>
+
+<h2 id="tips">Советы новичку</h2>
+<ul>
+  <li>Не тяни с улучшением таверны: на 2-м–3-м раунде улучшение дешёвое.</li>
+  <li>Выбери 1–2 племени, которые чаще приходят, и усиливай их — эффекты племени складываются.</li>
+  <li>Ставь Стражей и существ с Барьером так, чтобы они прикрывали ценных бойцов. Существа с эффектом «Начало боя» и «Предсмертие» ценны в любой позиции.</li>
+  <li>Замораживай таверну, если там лежит вторая копия нужного существа, а золота не хватает.</li>
+  <li>Следи за здоровьем: когда его мало, лучше потратить ход на усиление стола, чем на улучшение таверны.</li>
+</ul>
+</main>
+
+<footer class="foot">© 2026 MariaMiel.Kunina · <a href="index.html">Главная</a> · <a href="guide.html">Как играть</a> ·
+  <a href="faq.html">Вопросы</a> · <a href="privacy.html">Политика конфиденциальности</a></footer>
+
+<script src="data/arena.js"></script>
+<script>
+(function () {
+  var A = window.ARENA;
+  var TRIBES = [
+    ['Зверь', 'beast', 'Волки, крысы, пауки, совомедведи. Призывают стаю из Предсмертий и усиливают друг друга.'],
+    ['Нежить', 'undead', 'Скелеты, вампиры, призраки. Воскрешение, Стражи и усиления всей Нежити.'],
+    ['Гоблин', 'goblin', 'Торгаши и вожди: лишнее золото, урон в начале боя, усиления в конце хода.'],
+    ['Стихия', 'elemental', 'Огонь и слизни. Растут в конце хода и усиливают существ в таверне.'],
+    ['Чародей', 'arcane', 'Мана и запас маны. Растут, когда применяешь силу героя.'],
+    ['Дружина', 'druzhina', 'Ополченцы, лучники, витязи. Стражи, урон в начале боя, усиления соратников.'],
+    ['Дух', 'spirit', 'Домовой, Банник, Аука, Русалка. Воскрешение, Предсмертия, заклинания в руку.'],
+    ['Нечисть', 'nechist', 'Анчутка, Злыдни, Мара, Лихо, Вий. Урон в начале боя, Яд, растут после атаки.']
+  ];
+  function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+
+  // Племена
+  var tl = document.getElementById('tribeList');
+  TRIBES.forEach(function (t) {
+    var n = A.minions.filter(function (m) { return m.tribe.indexOf(t[0]) >= 0; }).length;
+    tl.appendChild(el('div', 'tribe', '<img src="img/arena/k/tribe_' + t[1] + '.webp" alt=""><div><b>' + t[0] + '</b> <span class="muted">· ' + n + ' существ</span><br><span class="muted">' + t[2] + '</span></div>'));
+  });
+
+  // Герои
+  var hl = document.getElementById('heroList');
+  A.heroes.forEach(function (h) {
+    hl.appendChild(el('div', 'ahero', '<img src="img/arena/h/' + h.id + '.webp" alt="" loading="lazy"><div><b>' + esc(h.name) + '</b><br>' +
+      '<span class="gold">«' + esc(h.power) + '»</span> <span class="muted">· ' + h.cost + ' маны</span><br>' + esc(h.text) + '</div>'));
+  });
+
+  // Заклинания
+  var tb = document.querySelector('#spellTable tbody');
+  A.spells.slice().sort(function (a, b) { return a.tier - b.tier; }).forEach(function (s) {
+    tb.appendChild(el('tr', null, '<td><b>' + esc(s.name) + '</b></td><td>' + s.tier + '</td><td>' + s.cost + '</td><td>' + esc(s.text) + '</td>'));
+  });
+
+  // Каталог существ
+  var state = { q: '', tier: 0, tribe: '', golden: false };
+  function chips(id, items, key) {
+    var box = document.getElementById(id);
+    items.forEach(function (it) {
+      var b = el('button', 'chip', it[1]);
+      b.type = 'button';
+      b.onclick = function () {
+        state[key] = state[key] === it[0] ? (key === 'tier' ? 0 : '') : it[0];
+        Array.prototype.forEach.call(box.children, function (c) { c.classList.remove('on'); });
+        if (state[key]) b.classList.add('on');
+        render();
+      };
+      box.appendChild(b);
+    });
+  }
+  chips('tierChips', [1, 2, 3, 4, 5, 6].map(function (t) { return [t, 'Ур. ' + t]; }), 'tier');
+  chips('tribeChips', TRIBES.map(function (t) { return [t[0], t[0]]; }), 'tribe');
+  document.getElementById('q').oninput = function (e) { state.q = e.target.value.trim().toLowerCase(); render(); };
+  document.getElementById('golden').onchange = function (e) { state.golden = e.target.checked; render(); };
+
+  var list = document.getElementById('cardList');
+  function render() {
+    list.innerHTML = '';
+    var shown = A.minions.filter(function (m) {
+      if (state.tier && m.tier !== state.tier) return false;
+      if (state.tribe && m.tribe.indexOf(state.tribe) < 0 && m.tribe !== 'Все племена') return false;
+      if (state.q && (m.name + ' ' + m.text + ' ' + m.tribe).toLowerCase().indexOf(state.q) < 0) return false;
+      return true;
+    }).sort(function (a, b) { return a.tier - b.tier || a.name.localeCompare(b.name, 'ru'); });
+    shown.forEach(function (m) {
+      var g = state.golden;
+      var c = el('div', 'mcard' + (g ? ' golden' : ''));
+      c.innerHTML = '<div class="mtop"><span class="tier">' + m.tier + '</span><img src="img/arena/m/' + m.id + '.webp" alt="" loading="lazy"></div>' +
+        '<b>' + esc(m.name) + (g ? ' ★' : '') + '</b><span class="mtribe">' + esc(m.tribe) + '</span>' +
+        '<span class="stats"><i class="atk">' + (g ? m.atk * 2 : m.atk) + '</i><i class="hp">' + (g ? m.hp * 2 : m.hp) + '</i></span>' +
+        '<p>' + esc((g ? m.gold : m.text) || '—') + '</p>';
+      list.appendChild(c);
+    });
+    document.getElementById('count').innerHTML = 'Показано: ' + shown.length + ' из ' + A.minions.length + ' · <span class="stats" style="display:inline-flex"><i class="atk">атака</i><i class="hp">здоровье</i></span> · в кружке — уровень таверны';
+  }
+  render();
+})();
+</script>
+</body>
+</html>
