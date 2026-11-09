@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Предметы — Руны и Клинки</title>
+<meta name="description" content="Справочник предметов «Руны и Клинки»: все вещи и зелья с картинками, качеством, характеристиками по уровням, прочностью и навыками в бою.">
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+.qrow { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 4px; }
+.q { display: flex; align-items: center; gap: 6px; font-size: 0.9rem; }
+.q img { width: 32px; height: 32px; }
+.icard .mtop { width: 100%; aspect-ratio: 1; background-size: cover; border-radius: 10px; display: grid; place-items: center; }
+.icard .mtop img { width: 72%; height: 72%; object-fit: contain; }
+.icard .slot { color: var(--muted); font-size: 0.8rem; }
+.icard ul { list-style: none; margin: 6px 0 0; padding: 0; font-size: 0.88rem; line-height: 1.45; }
+.icard .skill { color: #c9a0ff; }
+.icard .lock { color: var(--muted); }
+.pcard .mtop { aspect-ratio: auto; }
+.pcard .mtop img { height: 90px; }
+.tbl.skills th:nth-child(3), .tbl.skills td:nth-child(3) { display: table-cell; }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a class="brand" href="index.html"><img src="img/icon.png" alt="">Руны и Клинки</a>
+  <nav>
+    <a href="index.html">Игра</a>
+    <a href="guide.html">Как играть</a>
+    <a href="items.html">Предметы</a>
+    <a href="arena.html">Арена рун</a>
+    <a href="faq.html">Вопросы</a>
+    <a href="updates.html">Обновления</a>
+  </nav>
+</header>
+
+<main class="doc wide">
+<h1>Предметы</h1>
+<p class="muted">Все вещи и зелья игры. Выбери качество — характеристики пересчитаются точно так, как в игре.
+  Как надевать вещи и пользоваться сумкой — в разделе <a href="guide.html#items">«Вещи и сумка»</a>.</p>
+
+<div class="toc panel">
+  <a href="#quality">Качество</a> · <a href="#rules">Как растут вещи</a> · <a href="#skills">Навыки вещей</a> ·
+  <a href="#gear">Все вещи</a> · <a href="#potions">Зелья</a>
+</div>
+
+<h2 id="quality">Качество</h2>
+<p>Качество — это уровень вещи, от 1 до 9. Его видно по цвету фона:</p>
+<div class="qrow" id="qLegend"></div>
+
+<h2 id="rules">Как растут вещи</h2>
+<ul>
+  <li><b>Урон, магический урон, здоровье и броня</b> растут в 1,5 раза за каждый уровень.</li>
+  <li><b>Крит и лечение</b> растут медленнее: +25% от значения 1-го уровня за каждый уровень.</li>
+  <li><b>Прочность</b>: 30 на 1-м уровне и +5 за каждый следующий. Победа отнимает 1, поражение — 2.
+    При 0 вещь не даёт характеристик, пока её не починят в <a href="guide.html#forge">кузнице</a>.</li>
+  <li>Поднять уровень: в кузнице сплавь <b>3 одинаковые вещи</b> одного уровня — получишь одну на уровень выше.</li>
+  <li>Можно надеть по одной вещи в каждое место. Колец — два.</li>
+</ul>
+
+<h2 id="skills">Навыки вещей</h2>
+<ul>
+  <li>С <b>4-го уровня</b> (фиолетовое качество) вещь даёт навык в бою — это 4-я кнопка. Навык тратит <b>14 маны</b>.</li>
+  <li>Если надето несколько таких вещей, действует навык только одной из них — у которой уровень выше.</li>
+  <li>Сила навыка растёт с качеством: на 4-м уровне ×1, и +0,3 за каждый уровень выше.</li>
+</ul>
+<table class="tbl skills">
+  <tr><th>Вещь</th><th>Навык</th><th>Что делает (на 4-м уровне)</th></tr>
+  <tbody id="skillTable"></tbody>
+</table>
+
+<h2 id="gear">Все вещи</h2>
+<div class="filters panel">
+  <input id="q" type="search" placeholder="Поиск по названию">
+  <div class="chips" id="levelChips"></div>
+  <div class="chips" id="slotChips"></div>
+</div>
+<p class="muted" id="count"></p>
+<div class="cards" id="gearList"></div>
+
+<h2 id="potions">Зелья</h2>
+<p class="muted">Зелья берутся в бой в меню «Зелья в бой». Выпитое зелье не тратит ход.</p>
+<div class="cards" id="potionList"></div>
+</main>
+
+<footer class="foot">© 2026 MariaMiel.Kunina · <a href="index.html">Главная</a> · <a href="guide.html">Как играть</a> ·
+  <a href="faq.html">Вопросы</a> · <a href="privacy.html">Политика конфиденциальности</a></footer>
+
+<script src="data/items.js"></script>
+<script>
+(function () {
+  var D = window.ITEMS;
+  var QUALITY = ['', 'серое', 'зелёное', 'синее', 'фиолетовое', 'оранжевое', 'красное', 'красное', 'красное', 'красное'];
+  var SLOTS = [['weapon', 'Оружие'], ['helmet', 'Шлем'], ['armor', 'Броня'], ['gloves', 'Перчатки'],
+               ['boots', 'Сапоги'], ['amulet', 'Амулет'], ['ring', 'Кольцо']];
+  var SLOT_NAME = {}; SLOTS.forEach(function (s) { SLOT_NAME[s[0]] = s[1]; });
+  var SKILL_MIN = 4, SWORD_TIERS = 6;
+
+  function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  // Как Mathf.RoundToInt в игре: ровно .5 округляется к чётному
+  function round(v) { var f = Math.floor(v), d = v - f; if (Math.abs(d - 0.5) < 1e-6) return f % 2 === 0 ? f : f + 1; return Math.round(v); }
+  function one(v) { return (Math.round(v * 10) / 10).toString().replace('.', ','); }
+  function pct(v) { return round(v * 100) + '%'; }
+  function bg(level) { return 'img/items/q' + Math.min(level, 6) + '.png'; }
+
+  function stats(it, level) {
+    var b = it.s, k = Math.pow(it.mult, level - 1), p = 1 + 0.25 * (level - 1);
+    return { dmg: b.Damage * k, mag: b.MagicDamage * k, hp: b.Health * k, arm: b.Armor * k, crit: b.CritChance * p, heal: b.HealBonus * p };
+  }
+  function skillOf(it) {
+    switch (it.slot) {
+      case 'weapon': return it.s.MagicDamage > it.s.Damage ? 'fire' : 'whirl';
+      case 'helmet': return 'cry'; case 'armor': return 'stone'; case 'gloves': return 'double';
+      case 'boots': return 'dash'; case 'amulet': return 'holy'; default: return 'theft';
+    }
+  }
+  var SKILL_NAME = { whirl: 'Вихрь клинков', fire: 'Огненный шар', cry: 'Боевой клич', stone: 'Каменная кожа',
+    double: 'Двойной удар', dash: 'Рывок', holy: 'Святое исцеление', theft: 'Кража маны' };
+  function skillText(kind, p) {
+    switch (kind) {
+      case 'whirl': return '3 быстрых удара, каждый — как ' + one(p) + ' черепа на поле.';
+      case 'fire': return 'удар как ' + one(2 * p) + ' черепа на поле и горение на враге.';
+      case 'cry': return '+' + pct(0.25 * p) + ' урона на 3 хода.';
+      case 'stone': return 'щит на ' + pct(0.3 * p) + ' здоровья.';
+      case 'double': return 'урон до конца хода +' + pct(p) + '.';
+      case 'dash': return 'после следующего хода — ещё один ход.';
+      case 'holy': return 'лечит ' + pct(0.25 * p) + ' здоровья и снимает яд, кровотечение, проклятие, горение, шок.';
+      default: return 'забирает у врага до ' + round(10 * p) + ' маны.';
+    }
+  }
+  function power(level) { return 1 + 0.3 * (Math.max(SKILL_MIN, level) - SKILL_MIN); }
+
+  // Легенда качества
+  var legend = document.getElementById('qLegend');
+  [[1, '1'], [2, '2'], [3, '3'], [4, '4'], [5, '5'], [6, '6–9']].forEach(function (q) {
+    legend.appendChild(el('span', 'q', '<img src="' + bg(q[0]) + '" alt=""><span><b>' + q[1] + '</b> — ' + QUALITY[q[0]] + '</span>'));
+  });
+
+  // Таблица навыков
+  var st = document.getElementById('skillTable');
+  [['Меч', 'whirl'], ['Посох', 'fire'], ['Шлем', 'cry'], ['Броня', 'stone'], ['Перчатки', 'double'],
+   ['Сапоги', 'dash'], ['Амулет', 'holy'], ['Кольцо', 'theft']].forEach(function (r) {
+    var t = skillText(r[1], 1);
+    st.appendChild(el('tr', null, '<td>' + r[0] + '</td><td><b>' + SKILL_NAME[r[1]] + '</b></td><td>' + t.charAt(0).toUpperCase() + t.slice(1) + '</td>'));
+  });
+
+  // Каталог вещей
+  var state = { level: 1, slot: '', q: '' };
+  function chips(id, items, key, initial) {
+    var box = document.getElementById(id);
+    items.forEach(function (it) {
+      var b = el('button', 'chip' + (it[0] === initial ? ' on' : ''), it[1]);
+      b.type = 'button';
+      b.onclick = function () {
+        if (key === 'slot' && state.slot === it[0]) state.slot = ''; else state[key] = it[0];
+        Array.prototype.forEach.call(box.children, function (c) { c.classList.remove('on'); });
+        if (state[key]) b.classList.add('on');
+        render();
+      };
+      box.appendChild(b);
+    });
+  }
+  chips('levelChips', [1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (l) { return [l, 'Ур. ' + l]; }), 'level', 1);
+  chips('slotChips', SLOTS, 'slot', '');
+  document.getElementById('q').oninput = function (e) { state.q = e.target.value.trim().toLowerCase(); render(); };
+
+  var list = document.getElementById('gearList');
+  function line(name, v, isPct) { return v > 0 ? '<li>' + name + ' +' + (isPct ? pct(v) : round(v)) + '</li>' : ''; }
+  function render() {
+    var L = state.level;
+    list.innerHTML = '';
+    // У каждого качества свои мечи; на 7–9 уровне — мечи 6-го
+    var shown = D.gear.filter(function (it) {
+      if (it.tier && it.tier !== Math.min(L, SWORD_TIERS)) return false;
+      if (state.slot && it.slot !== state.slot) return false;
+      return !state.q || it.name.toLowerCase().indexOf(state.q) >= 0;
+    });
+    shown.forEach(function (it) {
+      var s = stats(it, L), kind = skillOf(it);
+      var html = line('Физ. урон', s.dmg) + line('Маг. урон', s.mag) + line('Здоровье', s.hp) + line('Броня', s.arm) +
+        line('Крит', s.crit, true) + line('Лечение', s.heal, true) +
+        '<li>Прочность ' + (it.dur[0] + it.dur[1] * (L - 1)) + '</li>';
+      html += L >= SKILL_MIN
+        ? '<li class="skill"><b>' + SKILL_NAME[kind] + ':</b> ' + skillText(kind, power(L)) + '</li>'
+        : '<li class="lock">Навык «' + SKILL_NAME[kind] + '» — с 4-го уровня</li>';
+      var c = el('div', 'mcard icard');
+      c.innerHTML = '<div class="mtop" style="background-image:url(' + bg(L) + ')"><img src="img/items/' + it.id + '.png" alt="" loading="lazy"></div>' +
+        '<b>' + esc(it.name) + '</b><span class="slot">' + (it.name === SLOT_NAME[it.slot] ? '' : SLOT_NAME[it.slot] + ' · ') + L + ' ур., ' + QUALITY[L] + '</span><ul>' + html + '</ul>';
+      list.appendChild(c);
+    });
+    document.getElementById('count').textContent = 'Показано: ' + shown.length +
+      ' · у мечей свой облик на каждом качестве (16 обликов), на 7–9 уровне — облики 6-го';
+  }
+  render();
+
+  // Зелья: что делает — как в бою
+  var POTION = {
+    4: function (p) { return 'Лечит ' + pct(p) + ' здоровья.'; },
+    5: function (p) { return 'Восстанавливает ' + pct(p) + ' маны.'; },
+    3: function () { return 'Ярость: урон ×1,5 на 5 ходов.'; },
+    2: function () { return 'Если герой падёт в бою — само воскресит его с 50% здоровья. Пить не нужно: держи в наборе зелий.'; }
+  };
+  var order = { 4: 0, 5: 1, 3: 2, 2: 3 };
+  var pl = document.getElementById('potionList');
+  D.potions.slice().sort(function (a, b) { return order[a.effect] - order[b.effect] || a.power - b.power; }).forEach(function (p) {
+    var c = el('div', 'mcard icard pcard');
+    c.innerHTML = '<div class="mtop"><img src="img/items/' + p.id + '.png" alt="" loading="lazy"></div><b>' + esc(p.name) + '</b>' +
+      '<ul><li>' + (POTION[p.effect] ? POTION[p.effect](p.power) : '') + '</li></ul>';
+    pl.appendChild(c);
+  });
+})();
+</script>
+</body>
+</html>
