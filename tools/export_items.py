@@ -89,11 +89,15 @@ for f in files:
     if key in seen:
         continue  # Кольцо I и Кольцо II — одна и та же вещь
     seen.add(key)
-    save_icon(sprite_image(sp.group(1), sp.group(2)), iid)
+    # Картинка на каждый уровень (у мечей одна на все уровни — тогда одна)
+    refs = re.findall(r"- \{fileID: (-?\d+), guid: ([0-9a-f]+)", t.split("_levelSprites:")[1].split("_potionEffect")[0])
+    for lv, (fid, g) in enumerate(refs if len(set(refs)) > 1 else refs[:1], 1):
+        save_icon(sprite_image(fid, g), iid if lv == 1 else "%s_%d" % (iid, lv))
     m = re.match(r"sword_t(\d)_", iid)
     gear.append({"id": iid, "name": name, "slot": slot, "tier": int(m.group(1)) if m else 0,
                  "mult": num(t, "_evolutionMultiplier"), "s": stats,
-                 "dur": [int(num(t, "_baseDurability")), int(num(t, "_durabilityPerLevel"))]})
+                 "dur": [int(num(t, "_baseDurability")), int(num(t, "_durabilityPerLevel"))],
+                 "pics": len(set(refs))})
 
 with open(SITE + "/data/items.js", "w") as out:
     out.write("// Выгрузка из Assets/Configs/Items (export_items.py). Не править руками.\n")

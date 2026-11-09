@@ -188,7 +188,7 @@
         ? '<li class="skill"><b>' + SKILL_NAME[kind] + ':</b> ' + skillText(kind, power(L)) + '</li>'
         : '<li class="lock">Навык «' + SKILL_NAME[kind] + '» — с 4-го уровня</li>';
       var c = el('div', 'mcard icard');
-      c.innerHTML = '<div class="mtop" style="background-image:url(' + bg(L) + ')"><img src="img/items/' + it.id + '.png" alt="" loading="lazy"></div>' +
+      c.innerHTML = '<div class="mtop" style="background-image:url(' + bg(L) + ')"><img src="img/items/' + it.id + (it.pics > 1 && L > 1 ? '_' + Math.min(L, it.pics) : '') + '.png" alt="" loading="lazy"></div>' +
         '<b>' + esc(it.name) + '</b><span class="slot">' + (it.name === SLOT_NAME[it.slot] ? '' : SLOT_NAME[it.slot] + ' · ') + L + ' ур., ' + QUALITY[L] + '</span><ul>' + html + '</ul>';
       list.appendChild(c);
     });
